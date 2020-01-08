@@ -15,9 +15,10 @@ const (
 )
 
 var (
+	currentPage uint32
 	msession    *grequests.Session
-	accessToken string //
-	uid         string //maimai unique userid
+	accessToken string
+	uid         string
 )
 
 func init() {
@@ -29,7 +30,7 @@ func init() {
 // pa=+86	area code
 // m=1xxxxxxxxxx	phone number
 // p=xxxxx		password
-//once succeed, it will set uid and accessToken correctly, which are necessary for getting gossips
+//once succeeded, it will set uid and accessToken correctly, which are necessary for getting gossips
 func Login(phonenumber string, password string) error {
 	var resp *http.Response
 	var err error
